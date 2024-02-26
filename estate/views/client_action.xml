@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record model="ir.actions.client" id="my_client_action">
+            <field name="name">My Client Action</field>
+            <field name="tag">estate.MyClientAction</field>
+        </record>
+        <menuitem id="estate_client_action"
+                name="client_action"
+                parent="estate_property_root_menu"
+                action="my_client_action"
+            />
+    </data>
+
+</odoo>

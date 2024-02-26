@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="estate.clientaction" owl="1">
+        <div class="heading">Hello world
+            <h1>
+                Hello brother
+            </h1>
+        </div>
+    </t>
+</templates>
