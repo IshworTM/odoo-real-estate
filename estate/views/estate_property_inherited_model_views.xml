@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="estate_property_inherited_model_form_view" model="ir.ui.view">
+            <field name="name">estate.property.inherited.model.form.view</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_simple_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='phone_numbers']" position="after">
+                    <notebook>
+                        <page string="Real Estate Properties" >
+                            <group>
+                                <field name="property_ids" string=""/>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
