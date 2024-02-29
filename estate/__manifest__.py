@@ -13,7 +13,7 @@
         "views/estate_property_type_views.xml",
         "views/estate_property_tag_views.xml",
         "views/estate_property_inherited_model_views.xml",
-        "views/client_action.xml",
+        "views/client_action_views.xml",
     ],
     "assets": {
         "web.assets_backend": [

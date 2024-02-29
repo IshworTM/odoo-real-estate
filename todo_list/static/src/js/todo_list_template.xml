@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+    <t t-name="todo_list_template" owl="1">
+        <div>
+            <p>
+                <div class="done_state" t-att-for="todo_list.id" t-att-class="todo_list.done ? 'text-decoration-line-through text-muted' : '' ">
+                    <t t-esc="todo_list.id"/>.
+                    <t t-esc="todo_list.description"/>
+                </div>
+            </p>
+        </div>
+    </t> 
+</templates>

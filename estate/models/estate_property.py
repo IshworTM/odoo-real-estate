@@ -1,4 +1,4 @@
-from odoo import _, models, fields, api, exceptions
+from odoo import _, models, fields, api
 from odoo.exceptions import UserError, ValidationError
 from datetime import datetime, timedelta
 
@@ -250,7 +250,7 @@ class EstatePropertyOffer(models.Model):
         if offer:
             max_offer = max(offer)
             if max_offer and vals[0]['offer_price'] < max_offer:
-                raise exceptions.ValidationError(f"Cannot create offer with amount less than {int(max_offer)} :-(")
+                raise ValidationError(f"Cannot create offer with amount less than {int(max_offer)} :-(")
         res = super().create(vals)
         res.property_id.state = 'offer_received'
         return res
