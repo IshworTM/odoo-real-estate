@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="student_optional_subjects_view_tree" model="ir.ui.view">
+            <field name="name">student.optional.subjects.view.tree</field>
+            <field name="model">student.optional.subjects</field>
+            <field name="arch" type="xml">
+                <tree string="Tree Model">
+                    <field name="name"/>
+                    <field name="marks"/>
+                    <field name="teacher"/>
+                </tree>
+            </field>
+        </record>
+    
+        <record id="student_optional_subjects_action" model="ir.actions.act_window">
+            <field name="name">Optional Subjects</field>
+            <field name="res_model">student.optional.subjects</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="student_optional_subjects_menu"
+            name="Optional Subjects"
+            parent="student_management_root_menu"
+            sequence="2"
+        />
+
+        <menuitem
+            id="student_optional_subjects_list_menu"
+            name="Subjects"
+            parent="student_optional_subjects_menu"
+            action="student_optional_subjects_action"
+        />
+    
+    </data>
+    
+
+</odoo>

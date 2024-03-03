@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="student_management_view_tree" model="ir.ui.view">
+            <field name="name">student.management.view.tree</field>
+            <field name="model">student.management</field>
+            <field name="arch" type="xml">
+                <tree string="Tree Model">
+                    <field name="name"/>
+                    <field name="roll_no"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+                    <field name="math"/>
+                    <field name="nepali"/>
+                    <field name="science"/>
+                    <field name="english"/>
+                    <field name="opt_subject_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="student_management_view_form" model="ir.ui.view">
+            <field name="name">student.management.view.form</field>
+            <field name="model">student.management</field>
+            <field name="arch" type="xml">
+                <form string="Form View">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="roll_no"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                            <field name="math"/>
+                            <field name="nepali"/>
+                            <field name="science"/>
+                            <field name="english"/>
+                        </group>
+                        <notebook>
+                            <page name="optional_subjects" string="Optional Subjects">
+                                <field name="opt_subject_ids" string=""/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    
+        <record id="student_management_action" model="ir.actions.act_window">
+            <field name="name">List of students</field>
+            <field name="res_model">student.management</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="student_management_root_menu"
+            name="Student Info"
+        />
+
+        <menuitem
+            id="student_management_students_menu"
+            name="Students"
+            parent="student_management_root_menu"
+        />
+
+        <menuitem
+            id="student_management_info_menu"
+            name="Information"
+            parent="student_management_students_menu"
+            action="student_management_action"
+            sequence="1"
+        />
+    </data>
+</odoo>
