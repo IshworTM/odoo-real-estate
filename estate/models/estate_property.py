@@ -244,7 +244,7 @@ class EstatePropertyOffer(models.Model):
         'The offered price cannot be less than 0!!'
     )}
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals):
         offer = self.env["estate.property.offer"].search([("property_id","=",vals[0]["property_id"])]).mapped("offer_price")
         if offer:
