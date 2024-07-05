@@ -1,6 +1,3 @@
 !.gitignore
 
-odoo/custom-addons/estate/__pycache__
-odoo/custom-addons/estate/models/__pycache__
-odoo/custom-addons/estate_account/__pycache__
-odoo/custom-addons/estate_account/models/__pycache__
+__pycache__/
