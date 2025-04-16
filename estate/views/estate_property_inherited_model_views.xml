@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//group[@name='phone_numbers']" position="after">
                     <notebook>
-                        <page string="Real Estate Properties" >
+                        <page string="Real Estate Properties">
                             <group>
                                 <field name="property_ids" string=""/>
                             </group>

@@ -1,16 +1,14 @@
 {
-    'name': 'Real Estate Account',
-    'author':'Prashanna',
-    'sequence': -1,
-    'website': 'https://www.realestate.tech',
-    'summary': 'realestate development',
-    'depends': ['estate', 'account'],
-    'data': [
-        'security/ir.model.access.csv',
+    "name": "Real Estate Account",
+    "author": "Ishwor",
+    "sequence": -1,
+    "website": "https://www.github.com/IshworTM",
+    "summary": "Real Estate Account Module",
+    "depends": ["estate", "account"],
+    "data": [
+        "security/ir.model.access.csv",
     ],
-    'demo':[],
-    'installable': True,
-    'application': True,
-    'assets':{},
-    'license': 'LGPL-3',
+    "installable": True,
+    "application": True,
+    "license": "LGPL-3",
 }

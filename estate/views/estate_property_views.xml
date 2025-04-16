@@ -10,32 +10,20 @@
                     <field name="name"/>
                     <field name="postcode"/>
                     <field name="bedrooms"/>
-                    <field
-                        name="living_area"
-                        filter_domain="[(
+                    <field name="living_area" filter_domain="[(
                             'living_area',
                             '>=',
                             self
-                        )]"
-                    />
+                        )]" />
                     <field name="expected_price"/>
                     <field name="selling_price"/>
                     <field name="date_availability"/>
-                    <filter
-                        string="Available"
-                        name="available"
-                        domain="[
-                            '|',
-                            ('state','=','new'),
-                            ('state','=','offer_received')
-                        ]"
-                    />
-                    <filter
-                        name="postcode"
-                        context="{
+                    <filter string="Available" name="available" domain="[
+                            '|', ('state','=','new'), ('state','=','offer_received')
+                        ]" />
+                    <filter name="postcode" context="{
                             'group_by' : 'postcode'
-                        }"
-                    />
+                        }" />
                 </search>
             </field>
         </record>
@@ -46,11 +34,7 @@
             <field name="name">advertisement.kanban.view</field>
             <field name="model">estate.property</field>
             <field name="arch" type="xml">
-                <kanban
-                    default_group_by="property_type_id"
-                    records_draggable="0"
-                    groups_draggable="0"
-                > 
+                <kanban default_group_by="property_type_id" records_draggable="0" groups_draggable="0">
                     <field name="state"/>
                     <templates>
                         <t t-name="kanban-box">
@@ -87,10 +71,7 @@
             <field name="name">estate.property.tree</field>
             <field name="model">estate.property</field>
             <field name="arch" type="xml">
-                <tree 
-                decoration-success="state=='offer_received' or state=='offer_accepted'"
-                decoration-bf="state=='offer_accepted'"
-                decoration-muted="state=='sold'" >
+                <tree decoration-success="state=='offer_received' or state=='offer_accepted'" decoration-bf="state=='offer_accepted'" decoration-muted="state=='sold'">
                     <field name="name" />
                     <field name="property_type_id"/>
                     <field name="postcode" />
@@ -104,7 +85,7 @@
                 </tree>
             </field>
         </record>
-    
+
         <!-- Form View for advertisement -->
         <record id="advertisement_form_view" model="ir.ui.view">
             <field name="name">estate.property.form</field>
@@ -112,37 +93,18 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button
-                            name="action_sold_property"
-                            type="object"
-                            string="Sold"
-                            class="oe_highlight"
-                            states="offer_accepted"/>
-                        <button 
-                            name="action_sold_property" 
-                            type="object" 
-                            string="Sold" 
-                            attrs="{'invisible': ['|','|', ('state', '=', 'sold'), ('state', '=', 'cancel'),('state', '=', 'offer_accepted')]}" />
-                        <button 
-                            name="action_cancel_property" 
-                            type="object" 
-                            string="Cancel" 
-                            attrs="{'invisible': ['|', ('state', '=', 'sold'), ('state', '=', 'cancel')]}" />
-                        <field 
-                            name="state" 
-                            widget="statusbar" 
-                            statusbar_visible="new,offer_received,offer_accepted,sold" />
+                        <button name="action_sold_property" type="object" string="Sold" class="oe_highlight" states="offer_accepted"/>
+                        <button name="action_sold_property" type="object" string="Sold" attrs="{'invisible': ['|','|', ('state', '=', 'sold'), ('state', '=', 'cancel'),('state', '=', 'offer_accepted')]}" />
+                        <button name="action_cancel_property" type="object" string="Cancel" attrs="{'invisible': ['|', ('state', '=', 'sold'), ('state', '=', 'cancel')]}" />
+                        <field name="state" widget="statusbar" statusbar_visible="new,offer_received,offer_accepted,sold" />
                     </header>
                     <sheet>
                         <div class="oe_title">
                             <h1>
-                                <field name="name" nolabel="1" />
+                                <field name="name" nolabel="1" placeholder="Property Name"/>
                             </h1>
                         </div>
-                        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                        <group>
-                            
-                        </group>
+                        <field name="tag_ids" widget="many2many_tags" placeholder="Tags" options="{'color_field': 'color'}"/>
                         <group col="2">
                             <group>
                                 <field name="property_type_id" />
@@ -197,20 +159,11 @@
         </record>
 
         <!-- Root menu -->
-        <menuitem
-            id="estate_property_root_menu" name="Real Estate"
-        />
+        <menuitem id="estate_property_root_menu" name="Real Estate" />
 
         <!-- Advertisement menu -->
-        <menuitem id="estate_property_advertisement_menu"
-            name="Advertisements"
-            parent="estate_property_root_menu"
-        />
+        <menuitem id="estate_property_advertisement_menu" name="Advertisements" parent="estate_property_root_menu" />
 
-        <menuitem id="estate_property_properties_menu"
-            name="Properties"
-            parent="estate_property_advertisement_menu"
-            action="estate_property_action"
-        />
+        <menuitem id="estate_property_properties_menu" name="Properties" parent="estate_property_advertisement_menu" action="estate_property_action" />
     </data>
 </odoo>

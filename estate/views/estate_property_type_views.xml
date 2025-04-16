@@ -8,11 +8,7 @@
                 <form string="Property Type form view">
                     <sheet>
                         <div class="oe_button_box" name="button_box">
-                            <button name="action_stat_button"
-                                type="object"
-                                class="oe_stat_button"
-                                icon="fa-money"
-                                context="{'xml_id':'estate.estate_offer_action'}">
+                            <button name="action_stat_button" type="object" class="oe_stat_button" icon="fa-money" context="{'xml_id':'estate.estate_offer_action'}">
                                 <field name="offer_ids" string="Offer" widget="statinfo" />
                             </button>
                         </div>
@@ -54,16 +50,9 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="realestate_setting"
-            name="Settings"
-            parent="estate_property_root_menu"
-        />
+        <menuitem id="realestate_setting" name="Settings" parent="estate_property_root_menu" />
 
-        <menuitem id="realestate_property_type"
-            name="Property Types"
-            parent="realestate_setting"
-            action="estate_property_type_action"
-        />
+        <menuitem id="realestate_property_type" name="Property Types" parent="realestate_setting" action="estate_property_type_action" />
 
     </data>
 </odoo>
